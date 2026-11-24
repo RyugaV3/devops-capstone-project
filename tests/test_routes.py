@@ -209,3 +209,24 @@ class TestAccountService(TestCase):
             response.status_code,
             status.HTTP_204_NO_CONTENT
         )
+
+    def test_list_accounts(self):
+        """It should List all Accounts"""
+        accounts = self._create_accounts(3)
+
+        response = self.client.get(BASE_URL)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        data = response.get_json()
+        self.assertEqual(len(data), len(accounts))
+
+        for account in accounts:
+            self.assertIn(account.serialize(), data)
+    
+    def test_list_accounts_empty(self):
+        """It should return an empty list when no Accounts exist"""
+        response = self.client.get(BASE_URL)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.get_json(), [])
