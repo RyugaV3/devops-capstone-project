@@ -150,7 +150,7 @@ class TestAccountService(TestCase):
             response.status_code,
             status.HTTP_404_NOT_FOUND
         )
-    
+
     def test_update_account(self):
         """It should Update an existing Account"""
         account = self._create_accounts(1)[0]
@@ -226,7 +226,7 @@ class TestAccountService(TestCase):
 
         for account in accounts:
             self.assertIn(account.serialize(), data)
-    
+
     def test_list_accounts_empty(self):
         """It should return an empty list when no Accounts exist"""
         response = self.client.get(BASE_URL)
@@ -256,7 +256,7 @@ class TestAccountService(TestCase):
 
         for key, value in headers.items():
             self.assertEqual(response.headers.get(key), value)
-    
+
     def test_cors_security(self):
         """It should return a CORS header"""
         response = self.client.get(
@@ -269,7 +269,7 @@ class TestAccountService(TestCase):
             status.HTTP_200_OK
         )
 
-        # Check for the CORS header 
+        # Check for the CORS header
         self.assertEqual(
             response.headers.get("Access-Control-Allow-Origin"),
             "*"
