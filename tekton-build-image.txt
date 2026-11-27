@@ -1,0 +1,15 @@
+Name:			accounts
+Namespace:		sn-labs-joshchongmah
+Created:		12 minutes ago
+Labels:			<none>
+Annotations:		<none>
+Image Repository:	image-registry.openshift-image-registry.svc:5000/sn-labs-joshchongmah/accounts
+Image Lookup:		local=false
+Unique Images:		1
+Tags:			1
+
+1
+  no spec tag
+
+  * image-registry.openshift-image-registry.svc:5000/sn-labs-joshchongmah/accounts@sha256:9cbf7fff8a5a406dea347a35a5e3daaed093c1d68ad0c48b9149d19b581b6c2d
+      12 minutes ago
